@@ -30,3 +30,15 @@ This makes two bots play against each other:
 ```
 
 Performance warning: There are way too many possible game states to go past a board length of 20, trust me.
+
+## Performance
+
+To increase what's possible you can set two constants:
+
+```python
+MAX_DEPTH = 100
+MAX_POSSIBLE_NEW_STATES = 100
+```
+
+These are the defaults. Max depth limits the recursion depth of the minimax function calling itself. For a 10 fields board this is most of the time ~12, for a 20 fields board it's usually around 17.
+Max possible new states limits the amount of items consumed from the possible_new_states() generator function. Obviously, both options (especially the latter) will decrease precision EXTREMELY!
