@@ -1,4 +1,7 @@
+import sys
 from functools import cache
+
+sys.setrecursionlimit(10000)
 
 BOARD_LENGTH = 20
 MARKS = "SO"
@@ -27,7 +30,7 @@ def evaluate(board: str, is_maximizing: bool):
     else:
         if is_full(board):
             # Draw
-            return 2
+            return -2
 
 
 def is_full(board: str):
@@ -59,3 +62,4 @@ def best_move(board: str):
         score = minimax(new_board, is_maximizing=False)
         if score > 0:
             break
+    return score, new_board
