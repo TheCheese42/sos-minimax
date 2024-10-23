@@ -31,11 +31,11 @@ def evaluate(board: str, is_maximizing: bool):
     if count_sos(board):
         # If the current move is maximizing, the last has completed the SOS
         # Therefore the -1 for the maximizing
-        return -1 if is_maximizing else 1
+        return -2 if is_maximizing else 1
     else:
         if is_full(board):
             # Draw
-            return -2
+            return -1
 
 
 @cache
